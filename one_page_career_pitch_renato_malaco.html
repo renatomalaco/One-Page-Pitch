@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>One-Page Career Pitch — Renato Malaco de Oliveira</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              900: '#0f172a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.45; transform: scale(1); }
+      50% { opacity: 0.75; transform: scale(1.04); }
+    }
+    .animate-fade-up {
+      animation: fadeUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      opacity: 0;
+    }
+    .delay-1 { animation-delay: 0.08s; }
+    .delay-2 { animation-delay: 0.16s; }
+    .delay-3 { animation-delay: 0.24s; }
+    .delay-4 { animation-delay: 0.32s; }
+
+    .bg-grid-pattern {
+      background-image: radial-gradient(rgba(148, 163, 184, 0.22) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+
+    .card-hover {
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px -8px rgba(15, 23, 42, 0.1);
+      border-color: #93c5fd;
+    }
+
+    .project-card.dimmed {
+      opacity: 0.38;
+      transform: scale(0.99);
+    }
+    .project-card.highlighted {
+      border-color: #2563eb;
+      box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.16);
+    }
+
+    /* Configuração dedicada para exportação limpa em 1 página A4 */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 8mm;
+      }
+      body {
+        background: #ffffff !important;
+        padding: 0 !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .sheet-container {
+        box-shadow: none !important;
+        border: none !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+      }
+      .animate-fade-up {
+        opacity: 1 !important;
+        animation: none !important;
+        transform: none !important;
+      }
+      .card-hover:hover {
+        transform: none !important;
+        box-shadow: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 bg-grid-pattern text-slate-800 antialiased min-h-screen py-6 px-3 sm:px-6">
+
+  <!-- Folha Principal (One-Page Sheet) -->
+  <main class="sheet-container max-w-5xl mx-auto bg-white rounded-2xl shadow-xl shadow-slate-900/5 border border-slate-200/80 overflow-hidden">
+    
+    <!-- Cabeçalho Executivo com Elemento Visual Dinâmico -->
+    <header class="relative bg-slate-900 text-white px-6 py-6 sm:px-9 sm:py-7 overflow-hidden">
+      <!-- Glow decorativo sutil -->
+      <div class="pointer-events-none absolute -right-16 -top-20 w-72 h-72 rounded-full bg-blue-600/20 blur-3xl" style="animation: pulseGlow 7s ease-in-out infinite;"></div>
+      <div class="pointer-events-none absolute right-36 -bottom-24 w-60 h-60 rounded-full bg-cyan-500/10 blur-2xl"></div>
+
+      <div class="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+        <div class="space-y-2">
+          <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-blue-500/15 border border-blue-400/30 text-blue-300 font-mono text-[11px] font-medium tracking-wide">
+            <span>ONE-PAGE CAREER PITCH</span>
+            <span class="text-blue-400/60">•</span>
+            <span>ADS</span>
+          </div>
+          <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
+            Renato Malaco de Oliveira
+          </h1>
+          <p class="text-sm sm:text-base font-medium text-blue-200">
+            Desenvolvedor Backend (Python &amp; Go) <span class="text-slate-500 mx-1">|</span> P&amp;D na CCM <span class="text-slate-500 mx-1">|</span> Iniciação Científica USP (33º SIICUSP)
+          </p>
+        </div>
+
+        <!-- Metadados / Contato -->
+        <div class="flex flex-col sm:flex-row md:flex-col items-start md:items-end gap-2 text-xs text-slate-300 shrink-0">
+          <div class="inline-flex items-center gap-1.5 bg-slate-800/80 border border-slate-700/80 px-3 py-1.5 rounded-lg">
+            <svg class="w-3.5 h-3.5 text-blue-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Ribeirão Preto, SP</span>
+          </div>
+          <a href="https://www.linkedin.com/in/renato-malaco/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 bg-blue-600/20 hover:bg-blue-600/35 border border-blue-500/40 text-blue-200 px-3 py-1.5 rounded-lg transition">
+            <svg class="w-3.5 h-3.5 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            <span class="font-mono text-[11px]">linkedin.com/in/renato-malaco</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Strip de Stack & Princípios -->
+      <div class="relative z-10 mt-5 pt-4 border-t border-slate-800 flex flex-wrap items-center gap-1.5">
+        <span class="text-[11px] font-mono uppercase tracking-wider text-slate-400 mr-1.5">Core Stack:</span>
+        <span class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700 text-amber-300 font-mono text-[11px]">Python</span>
+        <span class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700 text-cyan-300 font-mono text-[11px]">Go (Golang)</span>
+        <span class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700 text-slate-200 font-mono text-[11px]">APIs &amp; Bancos de Dados</span>
+        <span class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700 text-emerald-300 font-mono text-[11px]">Clean Architecture</span>
+        <span class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700 text-emerald-300 font-mono text-[11px]">DDD • TDD • YAGNI</span>
+        <span class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700 text-purple-300 font-mono text-[11px]">IA &amp; Claude Workflow</span>
+        <span class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700 text-sky-300 font-mono text-[11px]">React (Base IC)</span>
+      </div>
+    </header>
+
+    <!-- Corpo Principal -->
+    <div class="p-6 sm:p-8 space-y-6">
+
+      <!-- 1. Proposta de Valor -->
+      <section class="animate-fade-up delay-1">
+        <div class="flex items-center gap-2 mb-2.5">
+          <span class="flex items-center justify-center w-6 h-6 rounded-md bg-blue-600 text-white font-mono text-xs font-bold">01</span>
+          <h2 class="text-sm font-bold uppercase tracking-wider text-slate-900">Proposta de Valor</h2>
+          <div class="h-px flex-1 bg-slate-200"></div>
+        </div>
+        <div class="relative rounded-xl bg-gradient-to-r from-slate-50 via-blue-50/40 to-slate-50 border border-slate-200/90 p-4 sm:p-5">
+          <div class="absolute left-0 top-3 bottom-3 w-1 rounded-r bg-blue-600"></div>
+          <p class="text-sm leading-relaxed text-slate-700 pl-2">
+            Desenvolvedor de software em formação em <strong class="font-semibold text-slate-900">Análise e Desenvolvimento de Sistemas (ADS)</strong> e atuante no time de <strong class="font-semibold text-slate-900">Pesquisa e Desenvolvimento (P&amp;D) da CCM</strong>. Focado na construção de <strong class="font-semibold text-slate-900">APIs, integrações com bancos de dados e ferramentas internas em Python e Go</strong>, aplicando princípios de <strong class="font-semibold text-slate-900">Clean Architecture, DDD, TDD e YAGNI</strong>, aliado a experiência de iniciação científica na <strong class="font-semibold text-slate-900">USP</strong> e produtividade assistida por ferramentas de <strong class="font-semibold text-slate-900">Inteligência Artificial</strong>.
+          </p>
+        </div>
+      </section>
+
+      <!-- 2. Experiência e Pilares Técnicos -->
+      <section class="animate-fade-up delay-2">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+          <div class="flex items-center gap-2">
+            <span class="flex items-center justify-center w-6 h-6 rounded-md bg-blue-600 text-white font-mono text-xs font-bold">02</span>
+            <h2 class="text-sm font-bold uppercase tracking-wider text-slate-900">Experiência e Pilares Técnicos</h2>
+          </div>
+          <span class="no-print text-[11px] text-slate-400 font-medium">Clique em um pilar para destacar projetos relacionados</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Pilar 1: CCM -->
+          <div onclick="filterProjects('ccm', this)" class="pillar-card card-hover cursor-pointer rounded-xl border border-slate-200 bg-white p-4 flex flex-col justify-between">
+            <div>
+              <div class="flex items-start justify-between gap-2 mb-2.5">
+                <div class="p-2 rounded-lg bg-blue-50 text-blue-600 border border-blue-100">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+                </div>
+                <span class="font-mono text-[10px] font-semibold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
+                  Jan/2026 – Atual • 11m
+                </span>
+              </div>
+              <h3 class="text-sm font-bold text-slate-900 mb-1">Backend &amp; P&amp;D (CCM)</h3>
+              <p class="text-xs leading-relaxed text-slate-600">
+                Desenvolvimento de serviços, APIs e conexões com bancos de dados em <strong class="text-slate-800">Python</strong> e <strong class="text-slate-800">Go</strong>. Criação de ferramentas internas de observabilidade e gestão (<strong class="text-slate-800">SmartHub Analytics</strong> e <strong class="text-slate-800">SmartCloud Metrics</strong>) que geram visibilidade operacional para a liderança.
+              </p>
+            </div>
+            <div class="mt-3 pt-2.5 border-t border-slate-100 flex flex-wrap gap-1">
+              <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-100 text-slate-600">Python</span>
+              <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-100 text-slate-600">Go</span>
+              <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-100 text-slate-600">APIs</span>
+              <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-100 text-slate-600">Bancos de Dados</span>
+            </div>
+          </div>
+
+          <!-- Pilar 2: USP InReDD -->
+          <div onclick="filterProjects('usp', this)" class="pillar-card card-hover cursor-pointer rounded-xl border border-slate-200 bg-white p-4 flex flex-col justify-between">
+            <div>
+              <div class="flex items-start justify-between gap-2 mb-2.5">
+                <div class="p-2 rounded-lg bg-amber-50 text-amber-600 border border-amber-100">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                </div>
+                <span class="font-mono text-[10px] font-semibold px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
+                  Jan – Dez/2025 • 1 ano
+                </span>
+              </div>
+              <h3 class="text-sm font-bold text-slate-900 mb-1">Pesquisa Acadêmica (USP — InReDD)</h3>
+              <p class="text-xs leading-relaxed text-slate-600">
+                Iniciação científica na USP no projeto <strong class="text-slate-800">InReDD</strong>, com contato introdutório na stack <strong class="text-slate-800">React</strong> para o desenvolvimento do site do projeto, apresentado oficialmente no <strong class="text-slate-800">33º SIICUSP</strong> (Simpósio Internacional de Iniciação Científica e Tecnológica da USP).
+              </p>
+            </div>
+            <div class="mt-3 pt-2.5 border-t border-slate-100 flex flex-wrap gap-1">
+              <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-100 text-slate-600">33º SIICUSP</span>
+              <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-100 text-slate-600">React (Intro)</span>
+              <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-100 text-slate-600">Saúde &amp; Ontologia</span>
+            </div>
+          </div>
+
+          <!-- Pilar 3: Arquitetura & IA Aplicada -->
+          <div onclick="filterProjects('arch-ia', this)" class="pillar-card card-hover cursor-pointer rounded-xl border border-slate-200 bg-white p-4 flex flex-col justify-between">
+            <div>
+              <div class="flex items-start justify-between gap-2 mb-2.5">
+                <div class="p-2 rounded-lg bg-purple-50 text-purple-600 border border-purple-100">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                </div>
+                <span class="font-mono text-[10px] font-semibold px-2 py-0.5 rounded-full bg-purple-50 text-purple-700 border border-purple-200">
+                  Engenharia &amp; IA
+                </span>
+              </div>
+              <h3 class="text-sm font-bold text-slate-900 mb-1">Arquitetura &amp; IA Aplicada</h3>
+              <p class="text-xs leading-relaxed text-slate-600">
+                Código estruturado sob <strong class="text-slate-800">Clean Architecture, DDD, TDD e YAGNI</strong>. Base conceitual em arquiteturas de IA (<strong class="text-slate-800">LLMs, Reinforcement Learning e Deep Reinforcement Learning</strong>) e uso estratégico de ferramentas como o <strong class="text-slate-800">Claude</strong> para acelerar desenvolvimento e revisão técnica.
+              </p>
+            </div>
+            <div class="mt-3 pt-2.5 border-t border-slate-100 flex flex-wrap gap-1">
+              <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-100 text-slate-600">DDD/TDD</span>
+              <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-100 text-slate-600">LLMs/RL</span>
+              <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-100 text-slate-600">Claude</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Projetos e Soluções de Destaque -->
+      <section class="animate-fade-up delay-3">
+        <div class="flex items-center justify-between gap-2 mb-3">
+          <div class="flex items-center gap-2">
+            <span class="flex items-center justify-center w-6 h-6 rounded-md bg-blue-600 text-white font-mono text-xs font-bold">03</span>
+            <h2 class="text-sm font-bold uppercase tracking-wider text-slate-900">Projetos e Soluções de Destaque</h2>
+          </div>
+          <button onclick="resetFilter()" id="resetFilterBtn" class="no-print hidden text-xs font-semibold text-blue-600 hover:text-blue-800">
+            Mostrar todos
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+          <!-- Projeto 1: SmartCloud Metrics & SmartHub Analytics -->
+          <article data-tags="ccm" class="project-card card-hover rounded-xl border border-slate-200 bg-slate-50/60 p-4">
+            <div class="flex items-center justify-between gap-2 mb-1.5">
+              <h3 class="text-sm font-bold text-slate-900">SmartCloud Metrics &amp; SmartHub Analytics</h3>
+              <span class="shrink-0 font-mono text-[10px] font-semibold px-2 py-0.5 rounded bg-blue-100 text-blue-800">CCM — P&amp;D</span>
+            </div>
+            <p class="text-xs leading-relaxed text-slate-600">
+              Duas soluções internas desenvolvidas na CCM. O <strong class="text-slate-800">SmartHub Analytics</strong> analisa métricas de acesso ao portal de clientes (SmartHub); já o <strong class="text-slate-800">SmartCloud Metrics</strong> oferece aos gestores um panorama do provisionamento de máquinas dos clientes, comparando o volume feito pelo portal próprio da empresa (mais ágil) versus diretamente pela Oracle (mais custoso em tempo operacional).
+            </p>
+          </article>
+
+          <!-- Projeto 2: Verifica AI -->
+          <article data-tags="arch-ia" class="project-card card-hover rounded-xl border border-slate-200 bg-slate-50/60 p-4">
+            <div class="flex items-center justify-between gap-2 mb-1.5">
+              <h3 class="text-sm font-bold text-slate-900">Verifica AI</h3>
+              <span class="shrink-0 font-mono text-[10px] font-semibold px-2 py-0.5 rounded bg-purple-100 text-purple-800">Plataforma SaaS — TCC</span>
+            </div>
+            <p class="text-xs leading-relaxed text-slate-600">
+              Aplicação em desenvolvimento que integra modelos de IA para analisar e identificar riscos de phishing em <strong class="text-slate-800">URLs, textos, imagens e arquivos suspeitos</strong> em tempo real, unindo arquitetura backend escalável e inteligência aplicada à proteção do usuário.
+            </p>
+          </article>
+
+          <!-- Projeto 3: Recruta Já -->
+          <article data-tags="usp arch-ia" class="project-card card-hover rounded-xl border border-slate-200 bg-slate-50/60 p-4">
+            <div class="flex items-center justify-between gap-2 mb-1.5">
+              <h3 class="text-sm font-bold text-slate-900">Recruta Já</h3>
+              <span class="shrink-0 font-mono text-[10px] font-semibold px-2 py-0.5 rounded bg-amber-100 text-amber-800">Ideathon Ribeirão Preto</span>
+            </div>
+            <p class="text-xs leading-relaxed text-slate-600">
+              Plataforma de recrutamento criada para tornar contratações mais assertivas para empresas e candidatos, priorizando o <strong class="text-slate-800">match de perfil e soft skills</strong> além das hard skills tradicionais.
+            </p>
+          </article>
+
+          <!-- Projeto 4: Motores de Domínio -->
+          <article data-tags="arch-ia ccm" class="project-card card-hover rounded-xl border border-slate-200 bg-slate-50/60 p-4">
+            <div class="flex items-center justify-between gap-2 mb-1.5">
+              <h3 class="text-sm font-bold text-slate-900">Motores de Domínio</h3>
+              <span class="shrink-0 font-mono text-[10px] font-semibold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800">Arquitetura de Software</span>
+            </div>
+            <p class="text-xs leading-relaxed text-slate-600">
+              Implementação de núcleos de regras de negócio complexas (como <strong class="text-slate-800">logística naval e projeções matemáticas</strong>) aplicando <strong class="text-slate-800">Domain-Driven Design (DDD)</strong> e testes automatizados para alta confiabilidade.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Rodapé de Síntese -->
+      <footer class="animate-fade-up delay-4 pt-3 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-slate-500">
+        <div class="flex items-center gap-2">
+          <span class="font-semibold text-slate-700">Renato Malaco de Oliveira</span>
+          <span>•</span>
+          <span>Desenvolvimento Backend, Arquitetura Limpa &amp; Soluções Orientadas a Produto</span>
+        </div>
+        <div class="font-mono text-[10px] text-slate-400">
+          Python • Go • Clean Architecture • DDD • TDD • YAGNI
+        </div>
+      </footer>
+
+    </div>
+  </main>
+
+  <script>
+    let activeFilter = null;
+
+    function filterProjects(tag, cardEl) {
+      const cards = document.querySelectorAll('.project-card');
+      const pillars = document.querySelectorAll('.pillar-card');
+      const resetBtn = document.getElementById('resetFilterBtn');
+
+      if (activeFilter === tag) {
+        resetFilter();
+        return;
+      }
+
+      activeFilter = tag;
+
+      pillars.forEach(p => {
+        p.classList.remove('ring-2', 'ring-blue-600', 'bg-blue-50/30');
+      });
+      cardEl.classList.add('ring-2', 'ring-blue-600', 'bg-blue-50/30');
+
+      cards.forEach(c => {
+        const tags = c.getAttribute('data-tags') || '';
+        if (tags.includes(tag)) {
+          c.classList.remove('dimmed');
+          c.classList.add('highlighted');
+        } else {
+          c.classList.add('dimmed');
+          c.classList.remove('highlighted');
+        }
+      });
+
+      resetBtn.classList.remove('hidden');
+    }
+
+    function resetFilter() {
+      activeFilter = null;
+      document.querySelectorAll('.pillar-card').forEach(p => {
+        p.classList.remove('ring-2', 'ring-blue-600', 'bg-blue-50/30');
+      });
+      document.querySelectorAll('.project-card').forEach(c => {
+        c.classList.remove('dimmed', 'highlighted');
+      });
+      document.getElementById('resetFilterBtn').classList.add('hidden');
+    }
+  </script>
+</body>
+</html>
